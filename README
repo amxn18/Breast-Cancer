@@ -1,62 +1,83 @@
-# Breast Cancer Classification Project 🧬
-Deployed at: https://checkforbreastcancer.streamlit.app/
+# 🧬 Breast Cancer Classification Project
+
+🔗 [🧪 Click here to try the deployed app]("https://checkforbreastcancer.streamlit.app/")  
+
 A machine learning project to classify whether a tumor is **Benign** or **Malignant** using real-world breast cancer data.
 
-## 📂 Dataset
-- Source: `data.csv` from the Breast Cancer Wisconsin (Diagnostic) dataset.
-- Features: 30 numeric measurements per tumor (e.g., radius, texture, perimeter).
-- Target: `diagnosis` (B → 0: Benign, M → 1: Malignant)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📂 DATASET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔹 Source: `data.csv` from the Breast Cancer Wisconsin (Diagnostic) dataset  
+🔹 Features: 30 numeric measurements per tumor (e.g., radius, texture, perimeter)  
+🔹 Target: `diagnosis`  
+        B → 0: Benign  
+        M → 1: Malignant  
 
-## 🛠️ Workflow
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🛠️ WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ Data Preprocessing  
+  🔸 Dropped columns: `id`, `Unnamed: 32`  
+  🔸 Label encoded `diagnosis`: M → 1, B → 0  
+  🔸 Train-test split: 80% training, 20% testing  
+  🔸 Feature scaling using `StandardScaler`  
 
-1. 🧹 **Preprocessing**
-   - Dropped irrelevant columns: `id`, `Unnamed: 32`
-   - Label encoding: `diagnosis` converted from M/B to 1/0
-   - Train-test split: 80% training, 20% testing
-   - Standardized features using `StandardScaler`
+2️⃣ Models Used  
+  🧠 Logistic Regression  
+  🤖 Support Vector Classifier (SVC) with linear kernel  
 
-2. 🤖 **Models Used**
-   - **Logistic Regression**
-   - **Support Vector Classifier (SVC)** with linear kernel
+3️⃣ Evaluation  
+  📊 Measured accuracy on both training and testing sets  
+  🧪 Included support for custom input prediction  
 
-3. 🔍 **Evaluation**
-   - Accuracy on both training and testing sets
-   - Custom input prediction support
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧠 INTERACTIVE PREDICTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Users can enter **30 feature values** (comma or space-separated).  
+These values are scaled and passed to both models, which return predictions.  
 
-4. 🧠 **Interactive Prediction**
-   ```python
-   Enter 30 feature values separated by space:
+Model       Training Accuracy   Testing Accuracy  
+🧠 Logistic Regression   ~99.5% ✅     ~96.5% ✅  
+🤖 SVC (Linear Kernel)   ~98.9% ✅     ~98.2% ✅  
 
+💡 NOTES  
+  ✅ Feature scaling was **crucial**—especially for SVM performance  
+  ✅ Dataset was **clean and well-balanced**, reducing preprocessing effort  
+  ✅ Both models showed high accuracy → Effective class separation in feature space  
 
-Predicts tumor type using both models:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📦 DEPLOYMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This project is deployed using **Streamlit** for an interactive web interface.  
 
-🧠 Logistic Regression
+🔗 Try it here: [https://checkforbreastcancer.streamlit.app/](https://checkforbreastcancer.streamlit.app/)  
 
-🤖 SVM
+🧾 How to Use:  
+1. Open the app link  
+2. Input 30 space-separated feature values  
+3. Instantly receive tumor prediction: **Benign** or **Malignant**  
 
-🧪 Results
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🖥️ RUN LOCALLY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```bash
+git clone https://github.com/amxn18/Breast-Cancer.git
+pip install -r requirements.txt
+streamlit run app.py
+```
+➡️ Input 30 features when prompted and get predictions from both models  
 
-Model	Training Accuracy	Testing Accuracy
-Logistic Regression	~99.5% ✅	~96.5% ✅
-SVC (Linear Kernel)	~98.9% ✅	~98.2% ✅
-💡 Notes
-Feature scaling was crucial for model performance, especially for SVMs.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📉 WHY NOT USE OUR CUSTOM SVM HERE?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Although we built a custom SVM earlier, it was:
 
-Both models showed very high accuracy, indicating effective separation of classes in feature space.
+⚠️ Limited to linear kernels  
+⚠️ No SMO (Sequential Minimal Optimization)  
+⚠️ No vectorization  
+⚠️ Lacked tolerance & convergence criteria  
+⚠️ Did not optimize slack variables  
 
-Dataset was clean and well-balanced, reducing preprocessing effort.
+✅ Hence, **scikit-learn's SVC** significantly outperformed it on real datasets like this.  
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔮 About the Predictive Input
-The user can input 30 comma/space-separated values corresponding to all features. These are scaled and passed to both trained models, which return predictions.
-
-📦 Deployment
-This project is deployed using Streamlit for an interactive web interface. You can enter the 30 features, and the model will predict whether the tumor is Benign or Malignant.
-
-
-
-How to use
-Open the app link.
-
-Input the feature values separated by spaces.
-
-Get the predicted result instantly.
