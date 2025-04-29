@@ -55,3 +55,5 @@ st.write(f"🤖 SVM (Linear Kernel) Prediction: {label[prediction2[0]]}")
 # Display Model Accuracy
 st.write(f"Model 1 (Logistic Regression) Accuracy: {accuracy_score(y_test, model1.predict(x_test))}")
 st.write(f"Model 2 (SVM) Accuracy: {accuracy_score(y_test, model2.predict(x_test))}")
+st.write("The accuracy and the results of the models may vary based on the dataset and the features used. "
+         "Make sure to enter valid values for the features.")
