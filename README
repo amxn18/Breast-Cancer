@@ -1,4 +1,5 @@
 # Breast Cancer Classification Project 🧬
+Deployed at: https://checkforbreastcancer.streamlit.app/
 A machine learning project to classify whether a tumor is **Benign** or **Malignant** using real-world breast cancer data.
 
 ## 📂 Dataset
@@ -25,36 +26,37 @@ A machine learning project to classify whether a tumor is **Benign** or **Malign
 4. 🧠 **Interactive Prediction**
    ```python
    Enter 30 feature values separated by space:
-   ```
-   Predicts tumor type using both models:
-   - 🧠 Logistic Regression
-   - 🤖 SVM
-
-## 🧪 Results
-
-| Model                | Training Accuracy | Testing Accuracy |
-|---------------------|-------------------|------------------|
-| Logistic Regression | ~99.5% ✅          | ~96.5% ✅         |
-| SVC (Linear Kernel) | ~98.9% ✅          | ~98.2% ✅         |
-
-## 💡 Notes
-
-- **Feature scaling** was crucial for model performance, especially for SVMs.
-- Both models showed **very high accuracy**, indicating effective separation of classes in feature space.
-- Dataset was clean and well-balanced, reducing preprocessing effort.
-
-## 🔮 About the Predictive Input
-The user can input **30 comma/space-separated values** corresponding to all features. These are scaled and passed to both trained models, which return predictions.
-
-## 📉 Why not use our custom SVM here?
-Although we built a custom SVM from scratch earlier, it:
-- Was **linear-only**
-- Lacked efficient optimization like **SMO**
-- Had no **vectorization**
-- Did not include **tolerance**, **convergence**, or **slack variable optimization**
-
-Hence, scikit-learn’s implementation outperforms it significantly in real-world datasets like this.
-
----
 
 
+Predicts tumor type using both models:
+
+🧠 Logistic Regression
+
+🤖 SVM
+
+🧪 Results
+
+Model	Training Accuracy	Testing Accuracy
+Logistic Regression	~99.5% ✅	~96.5% ✅
+SVC (Linear Kernel)	~98.9% ✅	~98.2% ✅
+💡 Notes
+Feature scaling was crucial for model performance, especially for SVMs.
+
+Both models showed very high accuracy, indicating effective separation of classes in feature space.
+
+Dataset was clean and well-balanced, reducing preprocessing effort.
+
+🔮 About the Predictive Input
+The user can input 30 comma/space-separated values corresponding to all features. These are scaled and passed to both trained models, which return predictions.
+
+📦 Deployment
+This project is deployed using Streamlit for an interactive web interface. You can enter the 30 features, and the model will predict whether the tumor is Benign or Malignant.
+
+
+
+How to use
+Open the app link.
+
+Input the feature values separated by spaces.
+
+Get the predicted result instantly.
